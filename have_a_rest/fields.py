@@ -216,7 +216,7 @@ class IdField(BaseField):
 class AnyField(BaseField):
     '''any'''
 
-    def _serialize(self, val):
+    def _serialize(self, val, **kw):
         return val
 
     def default_check(self, val):
