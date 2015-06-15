@@ -156,7 +156,11 @@ class APIModel(Field):
         for k, kr in self._displaying_fields.iteritems():
             f = self._referenced_fields[kr]
             try:
-                v = getattr(val, kr)
+                if type(val) == dict:
+                    foo = dict.get
+                else:
+                    foo = getattr
+                v = foo(val, kr)
                 # 为None or 空 的数据也发给客户端
                 k = serializer(k)
                 out[k] = f.serialize(v, serializer=serializer)
