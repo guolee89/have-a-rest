@@ -325,12 +325,13 @@ class DictField(BaseField):
 class AmountField(BaseField):
     '''amount'''
 
-    UNIT_TYPE_YUAN, UNIT_TYPE_WAN, UNIT_TYPE_YI = range(3)
+    UNIT_TYPE_YUAN, UNIT_TYPE_WAN, UNIT_TYPE_YI, UNIT_TYPE_FEN = range(4)
 
     TRANSFERING_MAPPER = {
         UNIT_TYPE_YUAN: 100,
         UNIT_TYPE_WAN: 1000000,
         UNIT_TYPE_YI: 10000000000,
+        UNIT_TYPE_FEN: 1,
     }
 
     def __init__(self, unit=UNIT_TYPE_YUAN, sample='100000', **kw):
